@@ -1,0 +1,22 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'tk.frostbit.objects-enumerator') {
+                useModule("tk.frostbit.objectsenumerator:enumerator-gradle-plugin:0")
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+includeBuild('..') {
+    dependencySubstitution {
+        substitute module("tk.frostbit.objectsenumerator:enumerator-gradle-plugin") with project(":gradle-plugin")
+        substitute module("tk.frostbit.objectsenumerator:enumerator-compiler-plugin") with project(":compiler-plugin")
+        substitute module("tk.frostbit.objectsenumerator:enumerator-api") with project(":api")
+    }
+}

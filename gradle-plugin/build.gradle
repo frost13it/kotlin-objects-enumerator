@@ -1,0 +1,16 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin-api"
+}
+
+gradlePlugin {
+    plugins {
+        enumerator {
+            id = 'tk.frostbit.objects-enumerator'
+            implementationClass = 'tk.frostbit.objectsenumerator.gradle.EnumeratorPlugin'
+        }
+    }
+}

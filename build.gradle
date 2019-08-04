@@ -1,0 +1,25 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.31' apply false
+}
+
+subprojects {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+    apply plugin: 'maven-publish'
+
+    group = "tk.frostbit.objectsenumerator"
+    archivesBaseName = "enumerator-$name"
+    version = "0.1"
+
+    sourceCompatibility = "8"
+
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    }
+
+    task install(dependsOn: publishToMavenLocal)
+}
